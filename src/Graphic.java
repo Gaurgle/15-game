@@ -16,7 +16,7 @@ public class Graphic extends JFrame implements ActionListener {
     List<String> oneFromFinished = new ArrayList<>(15);
 
 
-    List<JButton> buttons;
+//    List<JButton> buttons;
     int indexOfEmptyButton;
 
     public Graphic() {
@@ -59,14 +59,6 @@ public class Graphic extends JFrame implements ActionListener {
             buttonsOrder.add(b.getText());
         }
         System.out.print(buttonsOrder);
-
-//        List<Integer> buttonsOrderInt = new ArrayList<>();
-//        for (String s : buttonsOrder) {
-//            buttonsOrderInt.add(Integer.parseInt(s));
-//
-//        }
-//        Collections.sort(buttonsOrder);
-//        System.out.println(buttonsOrderInt);
 
         return buttons;
     }
@@ -154,7 +146,5 @@ public class Graphic extends JFrame implements ActionListener {
             Collections.swap(buttons, i, indexOfEmptyButton);
             repaint();
         }
-
-
     }
 }
