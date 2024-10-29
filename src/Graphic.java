@@ -1,37 +1,41 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 // är adam med?
 
 public class Graphic extends JFrame {
-        JPanel panel = new JPanel();
-        List<JButton> buttons = new ArrayList<>();
+    JPanel panel = new JPanel();
+    List<JButton> buttons = new ArrayList<>();
 
-        public void Graphic(){
-            setTitle("Graphic");
-            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            setSize(800, 600);
-
-            gameLayout();
-
-            add(panel);
-
-        }
-
-    public void gameLayout() {
-        panel.setLayout(new GridLayout(3, 5,10,10));
-
-        for (int i = 1; i <= 15; i++) {
-            JButton b = (new JButton("b" +i));
-            buttons.add(b);
+    public Graphic() {
+        setTitle("Graphic");
+        add(panel);
+        panel.setLayout(new GridLayout(4, 4));
+        gameLayout();
+        for (JButton b : buttons) {
             panel.add(b);
         }
-
-        for (JButton button : buttons){
-            System.out.println(button.getText());
+        setVisible(true);
+        pack();
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+    //Lägger till 15 knappar
+    public void gameLayout() {
+        for (int i = 1; i <= 16; i++) {
+            if (i == 16) {
+                JButton b = (new JButton(""));
+                buttons.add(b);
+            } else {
+                JButton b = (new JButton("" + i));
+                buttons.add(b);
+            }
         }
+
+        Collections.shuffle(buttons);
     }
 
     @Override
