@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 // är adam med?
@@ -9,6 +10,9 @@ import java.util.List;
 public class Graphic extends JFrame {
     JPanel panel = new JPanel();
     List<JButton> buttons = new ArrayList<>();
+    List<String> facit = new ArrayList<>(15);
+    List<String> oneFromFinished = new ArrayList<>(15);
+
 
     public Graphic() {
         setTitle("Graphic");
@@ -36,6 +40,57 @@ public class Graphic extends JFrame {
         }
 
         Collections.shuffle(buttons);
+
+        setFacit();
+        setOneFromFinished();
+        getFacit();
+        getOneFromFinished();
+
+        // måste göras till int? kan ej sortera korrekt
+        List<String> buttonsOrder = new ArrayList<>();
+        for (JButton b : buttons) {
+            buttonsOrder.add(b.getText());
+        }
+        System.out.print(buttonsOrder);
+
+//        List<Integer> buttonsOrderInt = new ArrayList<>();
+//        for (String s : buttonsOrder) {
+//            buttonsOrderInt.add(Integer.parseInt(s));
+//
+//        }
+//        Collections.sort(buttonsOrder);
+//        System.out.println(buttonsOrderInt);
+
+    }
+
+    public void setFacit() {
+        for (int i = 0; i <= 16; i++) {
+            if (i == 0) {
+                facit.add("");
+            } else if (i <= 15) {
+                facit.add(String.valueOf(i));
+            }
+        }
+    }
+    public void getFacit() {
+        System.out.println(facit + " = facit:");
+    }
+
+    public void setOneFromFinished() {
+        for (int i = 0; i <= 16; i++) {
+             if (i == 0) {
+                 oneFromFinished.add("");
+             } else if (i <= 15) {
+                oneFromFinished.add(String.valueOf(i));
+            } else {
+                oneFromFinished.set(Integer.parseInt(String.valueOf(14)), String.valueOf(15));
+                oneFromFinished.set(Integer.parseInt(String.valueOf(15)), String.valueOf(14));
+            }
+        }
+    }
+
+    public void getOneFromFinished() {
+        System.out.println(oneFromFinished +" = one from finished:" );
     }
 
     @Override
@@ -44,4 +99,11 @@ public class Graphic extends JFrame {
                 "buttons=" + buttons +
                 '}';
     }
+
+//    public void toInt(List<JButton> buttons) {
+//        for (JButton b : buttons) {
+//            Integer.parseInt(b.getText());
+//            return;
+//        }
+//    }
 }
