@@ -23,3 +23,6 @@ Lägg in demoläge, med fixed placering av tiles för att snabbt kunna vinna.
 
 
 VG är bara Git allting.
+
+Adam:
+lägga knapparna i en 2D Array? Tror det är lättast, för då kan man söka i rad och i kolumn
