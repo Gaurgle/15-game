@@ -12,6 +12,7 @@ import java.util.List;
 public class Graphic extends JFrame implements ActionListener {
     JPanel panel = new JPanel();
     List<JButton> buttons = new ArrayList<>();
+    int indexOfEmptyButton;
 
     public Graphic() {
         setTitle("Graphic");
@@ -52,8 +53,19 @@ public class Graphic extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == buttons.getFirst()) {
-            buttons.getFirst().setBackground(Color.GREEN);
+        JButton butt = (JButton) e.getSource();
+        int i = buttons.indexOf(butt);
+        for (JButton button : buttons) {
+            if (button.getText().isEmpty()) {
+                indexOfEmptyButton = buttons.indexOf(button);
+            }
         }
+
+        if (i - 1 == indexOfEmptyButton || i + 1 == indexOfEmptyButton || i + 4 == indexOfEmptyButton || i -4 == indexOfEmptyButton) {
+            //Byt plats på den tomma knappen och den tryckta knappen
+            System.out.println("Change places!");
+        }
+
+
     }
 }
