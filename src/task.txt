@@ -1,0 +1,21 @@
+För att bli Godkänd (G) krävs följande:
+• Ett grafiskt gränssnitt som visar de numrerade brickorna i spelet.
+• När man klickar på en bricka bredvid den tomma platsen ska den klickade brickan byta
+plats med ”tomma platsen”.
+• Om en klickad bricka inte ligger bredvid tomma platsen ska de inte byta plats.
+• Det ska finnas en knapp, ”Nytt spel”. När man klickar på denna ska alla brickorna
+blandas i slumpmässig ordning.
+• När spelet är löst (alla brickor ligger i nummerordning) ska ett meddelande ”Grattis, du
+vann!” visas på skärmen.
+• Programmet ska funka!
+• Koden ska vara enkelt läsbar och prydligt skriven.
+• Bägge personer ska vara med och skriva kod (förutsatt att ni gör uppgiften parvis).
+• Koden ska laddas upp på StudentPortalen (det räcker med att 1 pers/grupp laddar upp)
+• En länk till koden, på GitHub, ska finnas inlagd på Portalen.
+För att bli Väl Godkänd (VG) måste lösningen uppfylla följande:
+• Alla krav för att få G ska vara uppfyllda.
+• Ni ska ha jobbat i feature-brancher i git, som successivt mergats in i master-branchen,
+när ni skrev er kod.
+• Vid redovisningen ska branchning och mergning framgå från historiken i git eller GitHub.
+• Ni får bonuspoäng om ni kan berätta om vilka horribla mergekonflikter ni har haft - och
+löst

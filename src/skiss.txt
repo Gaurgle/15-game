@@ -1,0 +1,25 @@
+gör interface:
+Grid layout 4x4
+är 16e spacet också en button? eller ett item av något slag? eller är det bara tomt?
+
+En logikmodul för att kolla om något space intill  vald button är ledigt.
+Logik som flyttar pjäsen till det lediga utrymmet.
+Är allt detta en 2d lista? låter komplicerat.
+Måste hålla det lediga spacet i en variabel, att kolla mot hela tiden.
+
+
+Spel 15
+
+Kan ha en lista med positioner? 2D eller ej,
+Där kan man ha en bool som håller om platsen är ledig eller ej.
+Så kan man iterera genom den.
+Kan också ha att den håller vilken knapp som är på vilken position.
+
+Kör i loop = fråga om man vill spela igen osv.
+
+Bool för avklarat spel?
+
+Lägg in demoläge, med fixed placering av tiles för att snabbt kunna vinna.
+
+
+VG är bara Git allting.
