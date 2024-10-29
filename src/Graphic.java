@@ -14,6 +14,7 @@ public class Graphic extends JFrame {
     List<String> oneFromFinished = new ArrayList<>(15);
 
 
+
     public Graphic() {
         setTitle("Graphic");
         add(panel);
@@ -46,7 +47,7 @@ public class Graphic extends JFrame {
         getFacit();
         getOneFromFinished();
 
-        // måste göras till int? kan ej sortera korrekt
+        // String list
         List<String> buttonsOrder = new ArrayList<>();
         for (JButton b : buttons) {
             buttonsOrder.add(b.getText());
@@ -93,17 +94,11 @@ public class Graphic extends JFrame {
         System.out.println(oneFromFinished +" = one from finished:" );
     }
 
+
     @Override
     public String toString() {
         return "Graphic{" +
                 "buttons=" + buttons +
                 '}';
     }
-
-//    public void toInt(List<JButton> buttons) {
-//        for (JButton b : buttons) {
-//            Integer.parseInt(b.getText());
-//            return;
-//        }
-//    }
 }
