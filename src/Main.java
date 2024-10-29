@@ -6,6 +6,8 @@ public class Main {
 //        new Main();
 //        new Graphic();
 
+        System.out.println("<hello aada");
+
     }
 
 }

@@ -3,6 +3,8 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+// är adam med?
+
 public class Graphic extends JFrame {
         JPanel panel = new JPanel();
         List<JButton> buttons = new ArrayList<>();
