@@ -11,6 +11,11 @@ import java.util.List;
 
 public class Graphic extends JFrame implements ActionListener {
     JPanel panel = new JPanel();
+    List<JButton> buttons = new ArrayList<>();
+    List<String> facit = new ArrayList<>(15);
+    List<String> oneFromFinished = new ArrayList<>(15);
+
+
     List<JButton> buttons;
     int indexOfEmptyButton;
 
@@ -42,8 +47,60 @@ public class Graphic extends JFrame implements ActionListener {
         }
 
         Collections.shuffle(buttons);
+
+        setFacit();
+        setOneFromFinished();
+        getFacit();
+        getOneFromFinished();
+
+        // String list
+        List<String> buttonsOrder = new ArrayList<>();
+        for (JButton b : buttons) {
+            buttonsOrder.add(b.getText());
+        }
+        System.out.print(buttonsOrder);
+
+//        List<Integer> buttonsOrderInt = new ArrayList<>();
+//        for (String s : buttonsOrder) {
+//            buttonsOrderInt.add(Integer.parseInt(s));
+//
+//        }
+//        Collections.sort(buttonsOrder);
+//        System.out.println(buttonsOrderInt);
+
         return buttons;
     }
+
+    public void setFacit() {
+        for (int i = 0; i <= 16; i++) {
+            if (i == 0) {
+                facit.add("");
+            } else if (i <= 15) {
+                facit.add(String.valueOf(i));
+            }
+        }
+    }
+    public void getFacit() {
+        System.out.println(facit + " = facit:");
+    }
+
+    public void setOneFromFinished() {
+        for (int i = 0; i <= 16; i++) {
+             if (i == 0) {
+                 oneFromFinished.add("");
+             } else if (i <= 15) {
+                oneFromFinished.add(String.valueOf(i));
+            } else {
+                oneFromFinished.set(Integer.parseInt(String.valueOf(14)), String.valueOf(15));
+                oneFromFinished.set(Integer.parseInt(String.valueOf(15)), String.valueOf(14));
+            }
+        }
+    }
+
+    public void getOneFromFinished() {
+        System.out.println(oneFromFinished +" = one from finished:" );
+    }
+
 
     public void paint() {
         for (JButton b : buttons) {
