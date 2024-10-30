@@ -101,8 +101,6 @@ public class GamePanel extends JPanel implements ActionListener {
             updateButtons(indexOfClickedButton, false);
         }
         System.out.println(getButtonsOrder().toString());
-//        HelperUtil.getFacit();
-
 
         List<String> buttonsNow = getButtonsOrder();
         List<String> buttonsFTW = HelperUtil.getFacit();
