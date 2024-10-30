@@ -40,6 +40,17 @@ public class GamePanel extends JPanel implements ActionListener {
         this.buttons = buttons;
     }
 
+    public void newGame() {
+        createButtonLayout();
+        removeAll();
+        for (JButton b : buttons) {
+            add(b);
+            b.setFont(new Font("Century Gothic", Font.BOLD, 35));
+        }
+        revalidate();
+        repaint();
+    }
+
     public void updateButtons(int clickedButton, boolean newGame) {
         if (!newGame) {
             Collections.swap(buttons, clickedButton, indexOfEmptyButton);

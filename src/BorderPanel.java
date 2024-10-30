@@ -1,12 +1,25 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class BorderPanel extends JPanel {
+public class BorderPanel extends JPanel implements ActionListener {
+
+    private final GamePanel gamePanel = new GamePanel();
+    private final OptionsPanel optionsPanel = new OptionsPanel();
 
     public BorderPanel() {
         setLayout(new BorderLayout());
-        add(new GamePanel(), BorderLayout.SOUTH);
-        add(new OptionsPanel(), BorderLayout.NORTH);
+        add(gamePanel, BorderLayout.SOUTH);
+        add(optionsPanel, BorderLayout.NORTH);
+        optionsPanel.getRestartGame().addActionListener(this);
         setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == optionsPanel.getRestartGame()) {
+            gamePanel.newGame();
+        }
     }
 }
