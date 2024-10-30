@@ -4,7 +4,7 @@ import java.awt.*;
 public class OptionsPanel extends JPanel {
 
     private final JButton restartGame = new JButton("Restart Game");
-    private final JButton setGameOneFromWin = new JButton("One From Win");
+    private final JButton setGameOneFromWin = new JButton("Dev Mode");
 
     public OptionsPanel() {
 
