@@ -12,7 +12,7 @@ public class BorderPanel extends JPanel implements ActionListener {
 
     public BorderPanel() {
         setLayout(new BorderLayout());
-        setBorder(new CompoundBorder(new MatteBorder(2, 10, 20, 10,
+        setBorder(new CompoundBorder(new MatteBorder(2, 10, 40, 10,
                 new Color(170, 170, 170)), new MatteBorder(0, 4, 7, 4, new Color(187, 187, 187))));
         add(gamePanel, BorderLayout.CENTER);
         add(optionsPanel, BorderLayout.NORTH);
