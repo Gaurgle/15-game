@@ -15,7 +15,7 @@ public class OptionsPanel extends JPanel {
         restartGame.setForeground(new Color(222, 200, 255));
         restartGame.setBorder(new CompoundBorder(new MatteBorder(2, 6, 11, 6, new Color(164, 118, 255)),
                 new MatteBorder(0, 2, 5, 2, new Color(176, 129, 255))));
-        setBackground(Color.WHITE);
+        setBackground(new Color(204, 204, 204));
         add(restartGame);
 
         setGameOneFromWin.setFont(new Font("Century Gothic", Font.BOLD, 15));
