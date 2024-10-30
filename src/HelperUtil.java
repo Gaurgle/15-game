@@ -16,11 +16,12 @@ public class HelperUtil {
         }
     }
 
-    public static void getFacit() {
-        System.out.println(facit + " = facit:");
+    public static List<String> getFacit() {
+        return facit;
+//        System.out.println(facit + " = facit:");
     }
 
-    public static void setOneFromFinished() {
+    public static List<String> setOneFromFinished() {
         for (int i = 0; i <= 16; i++) {
             if (i == 0) {
                 oneFromFinished.add("");
@@ -30,11 +31,11 @@ public class HelperUtil {
                 oneFromFinished.set(Integer.parseInt(String.valueOf(14)), String.valueOf(15));
                 oneFromFinished.set(Integer.parseInt(String.valueOf(15)), String.valueOf(14));
             }
-        }
+        } return oneFromFinished;
     }
 
     public static void getOneFromFinished() {
+//        return oneFromFinished;
         System.out.println(oneFromFinished + " = one from finished:");
     }
 }
-

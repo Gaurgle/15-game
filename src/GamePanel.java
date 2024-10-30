@@ -27,6 +27,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
         for (int i = 1; i <= 16; i++) {
             JButton b;
+
             if (i == 16) {
                 b = (new JButton(""));
                 b.setVisible(false);
@@ -100,7 +101,17 @@ public class GamePanel extends JPanel implements ActionListener {
             updateButtons(indexOfClickedButton, false);
         }
         System.out.println(getButtonsOrder().toString());
-        HelperUtil.getFacit();
+//        HelperUtil.getFacit();
+
+
+        List<String> buttonsNow = getButtonsOrder();
+        List<String> buttonsFTW = HelperUtil.getFacit();
+
+        if (buttonsNow.equals(buttonsFTW)) {
+            System.out.println("you won");
+        } else if (!buttonsFTW.equals(buttonsNow)) {
+            System.out.println("you haven't woneth yet");
+        }
         //Är vi i mål?
     }
 

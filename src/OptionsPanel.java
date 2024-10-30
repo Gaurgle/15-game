@@ -7,5 +7,4 @@ public class OptionsPanel extends JPanel {
         add(button);
         setVisible(true);
     }
-
 }
