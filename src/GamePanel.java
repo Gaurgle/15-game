@@ -14,13 +14,13 @@ public class GamePanel extends JPanel implements ActionListener {
     public GamePanel() {
         HelperUtil.setFacit();
         setLayout(new GridLayout(4, 4, 2, 2));
-        createButtonLayout();
+        createButtonLayout(false);
         for (JButton b : buttons) {
             add(b);
         }
     }
 
-    public void createButtonLayout() {
+    public void createButtonLayout(boolean devMode) {
 
         List<JButton> buttons = new ArrayList<>();
 
@@ -36,13 +36,20 @@ public class GamePanel extends JPanel implements ActionListener {
             b.addActionListener(this);
             b.setFont(new Font("Century Gothic", Font.BOLD, 35));
         }
-        Collections.shuffle(buttons);
+        if (!devMode) {
+            Collections.shuffle(buttons);
+        }
         this.buttons = buttons;
     }
 
     public void newGame() {
-        createButtonLayout();
+        createButtonLayout(false);
         updateButtons(0, true);
+    }
+
+    public void devMode() {
+        createButtonLayout(true);
+        updateButtons(0,true);
     }
 
     public void updateButtons(int clickedButton, boolean newGame) {
