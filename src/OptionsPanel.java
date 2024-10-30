@@ -15,7 +15,6 @@ public class OptionsPanel extends JPanel {
         setGameOneFromWin.setFont(new Font("Century Gothic", Font.BOLD, 15));
         setBackground(Color.DARK_GRAY);
         add(setGameOneFromWin);
-
     }
 
     public JButton getRestartGame() {
