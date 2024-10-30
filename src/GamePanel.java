@@ -17,7 +17,6 @@ public class GamePanel extends JPanel implements ActionListener {
         createButtonLayout();
         for (JButton b : buttons) {
             add(b);
-            b.setFont(new Font("Century Gothic", Font.BOLD, 35));
         }
     }
 
@@ -35,6 +34,7 @@ public class GamePanel extends JPanel implements ActionListener {
             }
             buttons.add(b);
             b.addActionListener(this);
+            b.setFont(new Font("Century Gothic", Font.BOLD, 35));
         }
         Collections.shuffle(buttons);
         this.buttons = buttons;
@@ -42,13 +42,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
     public void newGame() {
         createButtonLayout();
-        removeAll();
-        for (JButton b : buttons) {
-            add(b);
-            b.setFont(new Font("Century Gothic", Font.BOLD, 35));
-        }
-        revalidate();
-        repaint();
+        updateButtons(0, true);
     }
 
     public void updateButtons(int clickedButton, boolean newGame) {
