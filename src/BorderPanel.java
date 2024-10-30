@@ -10,7 +10,7 @@ public class BorderPanel extends JPanel implements ActionListener {
 
     public BorderPanel() {
         setLayout(new BorderLayout());
-        add(gamePanel, BorderLayout.SOUTH);
+        add(gamePanel, BorderLayout.CENTER);
         add(optionsPanel, BorderLayout.NORTH);
         optionsPanel.getRestartGame().addActionListener(this);
         optionsPanel.getSetGameOneFromWin().addActionListener(this);

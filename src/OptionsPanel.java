@@ -9,11 +9,10 @@ public class OptionsPanel extends JPanel {
     public OptionsPanel() {
 
         restartGame.setFont(new Font("Century Gothic", Font.BOLD, 15));
-        setBackground(Color.DARK_GRAY);
+        setBackground(Color.WHITE);
         add(restartGame);
 
         setGameOneFromWin.setFont(new Font("Century Gothic", Font.BOLD, 15));
-        setBackground(Color.DARK_GRAY);
         add(setGameOneFromWin);
     }
 
