@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +17,7 @@ public class GamePanel extends JPanel implements ActionListener {
     public GamePanel() {
         HelperUtil.setFacit();
         setLayout(new GridLayout(4, 4, 2, 2));
+        setBackground(Color.WHITE);
         createButtonLayout(false);
         for (JButton b : buttons) {
             add(b);
@@ -35,6 +38,10 @@ public class GamePanel extends JPanel implements ActionListener {
                 b.setVisible(false);
             } else {
                 b = (new JButton("" + i));
+                b.setOpaque(true);
+                b.setBackground(new Color(205, 171, 255));
+                b.setForeground(new Color(222, 200, 255));
+                b.setBorder(new MatteBorder(2, 6, 11, 6, new Color(222, 200, 255)));
             }
             buttons.add(b);
             b.addActionListener(this);
