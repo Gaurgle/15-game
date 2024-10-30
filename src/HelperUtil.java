@@ -16,8 +16,8 @@ public class HelperUtil {
         }
     }
 
-    public static void getFacit() {
-        System.out.println(facit + " = facit:");
+    public static List<String> getFacit() {
+        return facit;
     }
 
     public static void setOneFromFinished() {

@@ -107,6 +107,14 @@ public class GamePanel extends JPanel implements ActionListener {
         System.out.println(getButtonsOrder().toString());
         HelperUtil.getFacit();
         //Är vi i mål?
+        List<String> buttonsNow = getButtonsOrder();
+        List<String> buttonsFTW = HelperUtil.getFacit();
+
+        if (buttonsNow.equals(buttonsFTW)) {
+            System.out.println("you won");
+        } else if (!buttonsFTW.equals(buttonsNow)) {
+            System.out.println("you haven't woneth yet");
+        }
     }
 
 }
