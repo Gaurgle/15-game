@@ -1,4 +1,7 @@
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,10 +13,12 @@ public class GamePanel extends JPanel implements ActionListener {
 
     private List<JButton> buttons = new ArrayList<>();
     private int indexOfEmptyButton;
+    private boolean hasWon;
 
     public GamePanel() {
         HelperUtil.setFacit();
         setLayout(new GridLayout(4, 4, 2, 2));
+        setBackground(Color.WHITE);
         createButtonLayout(false);
         for (JButton b : buttons) {
             add(b);
@@ -21,7 +26,10 @@ public class GamePanel extends JPanel implements ActionListener {
     }
 
     public void createButtonLayout(boolean devMode) {
-
+        if (hasWon) {
+            setLayout(new GridLayout(4, 4, 2, 2));
+            hasWon = false;
+        }
         List<JButton> buttons = new ArrayList<>();
 
         for (int i = 1; i <= 16; i++) {
@@ -31,10 +39,15 @@ public class GamePanel extends JPanel implements ActionListener {
                 b.setVisible(false);
             } else {
                 b = (new JButton("" + i));
+                b.setOpaque(true);
+                b.setBackground(new Color(205, 171, 255));
+                b.setForeground(new Color(222, 200, 255));
+                b.setBorder(new CompoundBorder(new MatteBorder(2, 6, 11, 6, new Color(164, 118, 255)),
+                        new MatteBorder(0, 2, 5, 2, new Color(176, 129, 255))));
             }
             buttons.add(b);
             b.addActionListener(this);
-            b.setFont(new Font("Century Gothic", Font.BOLD, 35));
+            b.setFont(new Font("Century Gothic", Font.BOLD, 55));
         }
         if (!devMode) {
             Collections.shuffle(buttons);
@@ -50,6 +63,17 @@ public class GamePanel extends JPanel implements ActionListener {
     public void devMode() {
         createButtonLayout(true);
         updateButtons(0,true);
+    }
+
+    public void setWinScreen() {
+        hasWon = true;
+        setLayout(new FlowLayout());
+        removeAll();
+        ImageIcon winImage = new ImageIcon("src/images/you-win-video-game-vector.jpg");
+        JLabel winScreen = new JLabel(winImage);
+        add(winScreen);
+        revalidate();
+        repaint();
     }
 
     public void updateButtons(int clickedButton, boolean newGame) {
@@ -111,14 +135,13 @@ public class GamePanel extends JPanel implements ActionListener {
             //Byt plats på den tomma knappen och den tryckta knappen
             updateButtons(indexOfClickedButton, false);
         }
-        System.out.println(getButtonsOrder().toString());
-        HelperUtil.getFacit();
         //Är vi i mål?
         List<String> buttonsNow = getButtonsOrder();
         List<String> buttonsFTW = HelperUtil.getFacit();
 
         if (buttonsNow.equals(buttonsFTW)) {
             System.out.println("you won");
+            setWinScreen();
         } else if (!buttonsFTW.equals(buttonsNow)) {
             System.out.println("you haven't woneth yet");
         }
