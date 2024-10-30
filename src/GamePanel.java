@@ -123,6 +123,4 @@ public class GamePanel extends JPanel implements ActionListener {
             System.out.println("you haven't woneth yet");
         }
     }
-
 }
-
