@@ -71,7 +71,7 @@ public class GamePanel extends JPanel implements ActionListener {
         hasWon = true;
         setLayout(new FlowLayout());
         removeAll();
-        ImageIcon winImage = new ImageIcon("src/images/you-win-video-game-vector.jpg");
+        ImageIcon winImage = new ImageIcon("src/images/crtPurpleScreen.jpg");
         JLabel winScreen = new JLabel(winImage);
         add(winScreen);
         revalidate();
