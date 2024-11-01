@@ -18,6 +18,7 @@ public class BorderPanel extends JPanel implements ActionListener {
         add(optionsPanel, BorderLayout.NORTH);
         optionsPanel.getRestartGame().addActionListener(this);
         optionsPanel.getSetGameOneFromWin().addActionListener(this);
+        optionsPanel.getMusicOnOff().addActionListener(this);
         setVisible(true);
     }
 
@@ -25,9 +26,10 @@ public class BorderPanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == optionsPanel.getRestartGame()) {
             gamePanel.newGame();
-
         } else if (e.getSource() == optionsPanel.getSetGameOneFromWin()) {
             gamePanel.devMode();
+        } else if (e.getSource() == optionsPanel.getMusicOnOff()) {
+            gamePanel.toggleMusic();
         }
     }
 }

@@ -15,6 +15,7 @@ public class GamePanel extends JPanel implements ActionListener {
     private Audio audioMoveFail;
     private Audio audioCleared;
 
+    private boolean musicPlaying = true;
     private List<JButton> buttons = new ArrayList<>();
     private int indexOfEmptyButton;
     private boolean hasWon;
@@ -38,7 +39,6 @@ public class GamePanel extends JPanel implements ActionListener {
         for (JButton b : buttons) {
             add(b);
             }
-
         }
 
     public void createButtonLayout(boolean devMode) {
@@ -84,6 +84,15 @@ public class GamePanel extends JPanel implements ActionListener {
     public void devMode() {
         createButtonLayout(true);
         updateButtons(0,true);
+    }
+
+    public void toggleMusic() {
+        if (musicPlaying) {
+            audioThemeSong.stop();
+        } else {
+            audioThemeSong.play();
+        }
+        musicPlaying = !musicPlaying;
     }
 
     public void setWinScreen() {
