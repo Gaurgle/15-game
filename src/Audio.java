@@ -5,6 +5,8 @@ import java.io.InputStream;
 public class Audio implements LineListener {
 
     private Clip clip;
+    private FloatControl volumeControl;
+    private boolean isMuted = false;
 
     public Audio(String fileName) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         InputStream inputStream = getClass().getClassLoader().getResourceAsStream("audio/" + fileName);
@@ -31,6 +33,10 @@ public class Audio implements LineListener {
             clip = (Clip) AudioSystem.getLine(info);
             clip.addLineListener(this);
             clip.open(convertedStream);
+
+            // mute
+            volumeControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -46,6 +52,17 @@ public class Audio implements LineListener {
     public void stop() {
         if (clip != null && clip.isRunning()) {
             clip.stop();
+        }
+    }
+
+    public void mute() {
+        if (volumeControl != null) {
+            if (isMuted) {
+                volumeControl.setValue(0.0f);
+            } else {
+                volumeControl.setValue(-80.0f);
+            }
+            isMuted = !isMuted;
         }
     }
 

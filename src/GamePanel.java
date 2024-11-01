@@ -87,12 +87,7 @@ public class GamePanel extends JPanel implements ActionListener {
     }
 
     public void toggleMusic() {
-        if (musicPlaying) {
-            audioThemeSong.stop();
-        } else {
-            audioThemeSong.play();
-        }
-        musicPlaying = !musicPlaying;
+        audioThemeSong.mute();
     }
 
     public void setWinScreen() {
