@@ -1,3 +1,5 @@
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.CompoundBorder;
@@ -5,6 +7,7 @@ import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -14,6 +17,7 @@ public class GamePanel extends JPanel implements ActionListener {
     private List<JButton> buttons = new ArrayList<>();
     private int indexOfEmptyButton;
     private boolean hasWon;
+    private Audio themeSong;
 
     public GamePanel() {
         HelperUtil.setFacit();
@@ -23,7 +27,13 @@ public class GamePanel extends JPanel implements ActionListener {
         for (JButton b : buttons) {
             add(b);
         }
-    }
+
+        try {
+            themeSong = new Audio();
+            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e){
+                e.printStackTrace();
+            }
+        }
 
     public void createButtonLayout(boolean devMode) {
         if (hasWon) {
