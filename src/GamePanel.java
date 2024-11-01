@@ -78,6 +78,7 @@ public class GamePanel extends JPanel implements ActionListener {
     public void newGame() {
         createButtonLayout(false);
         updateButtons(0, true);
+        audioThemeSong.play();
     }
 
     public void devMode() {
