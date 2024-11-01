@@ -31,7 +31,8 @@ public class Audio implements LineListener {
             clip = (Clip) AudioSystem.getLine(info);
             clip.addLineListener(this);
             clip.open(convertedStream);
-
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

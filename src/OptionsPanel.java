@@ -10,6 +10,7 @@ public class OptionsPanel extends JPanel {
 
     public OptionsPanel() {
 
+        restartGame.setOpaque(true);
         restartGame.setFont(new Font("Century Gothic", Font.BOLD, 15));
         restartGame.setBackground(new Color(205, 171, 255));
         restartGame.setForeground(new Color(222, 200, 255));
@@ -18,6 +19,7 @@ public class OptionsPanel extends JPanel {
         setBackground(new Color(204, 204, 204));
         add(restartGame);
 
+        setGameOneFromWin.setOpaque(true);
         setGameOneFromWin.setFont(new Font("Century Gothic", Font.BOLD, 15));
         setGameOneFromWin.setBackground(new Color(205, 171, 255));
         setGameOneFromWin.setForeground(new Color(222, 200, 255));

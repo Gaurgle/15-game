@@ -53,6 +53,7 @@ public class GamePanel extends JPanel implements ActionListener {
             if (i == 16) {
                 b = (new JButton(""));
                 //b.setVisible(false);
+                b.setOpaque(true);
                 b.setBackground(Color.DARK_GRAY);
                 b.setBorder(new CompoundBorder(new MatteBorder(11, 6, 2, 6, Color.GRAY),
                         new MatteBorder(5, 2, 2, 2, new Color(97, 102, 107))));
