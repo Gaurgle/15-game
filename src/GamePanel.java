@@ -14,25 +14,35 @@ import java.util.List;
 
 public class GamePanel extends JPanel implements ActionListener {
 
+    private Audio audioThemeSong;
+    private Audio audioMoveSucc;
+    private Audio audioMoveFail;
+    private Audio audioCleared;
+
     private List<JButton> buttons = new ArrayList<>();
     private int indexOfEmptyButton;
     private boolean hasWon;
-    private Audio themeSong;
 
     public GamePanel() {
+        try {
+            audioThemeSong = new Audio("Game15_1.0.wav");
+            audioMoveSucc = new Audio("move_succ.wav");
+            audioMoveFail = new Audio("move_fail.wav");
+            audioCleared = new Audio("audio_cleared.wav");
+
+            audioThemeSong.play();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         HelperUtil.setFacit();
         setLayout(new GridLayout(4, 4, 2, 2));
         setBackground(Color.WHITE);
         createButtonLayout(false);
         for (JButton b : buttons) {
             add(b);
-        }
-
-        try {
-            themeSong = new Audio();
-            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e){
-                e.printStackTrace();
             }
+
         }
 
     public void createButtonLayout(boolean devMode) {
@@ -144,6 +154,9 @@ public class GamePanel extends JPanel implements ActionListener {
         if (buttonsAreSwappable(indexOfClickedButton)) {
             //Byt plats på den tomma knappen och den tryckta knappen
             updateButtons(indexOfClickedButton, false);
+            audioMoveSucc.play();
+        } else {
+            audioMoveFail.play();
         }
         //Är vi i mål?
         List<String> buttonsNow = getButtonsOrder();
@@ -151,6 +164,9 @@ public class GamePanel extends JPanel implements ActionListener {
 
         if (buttonsNow.equals(buttonsFTW)) {
             System.out.println("you won");
+            audioThemeSong.stop();
+            audioCleared.play();
+
             setWinScreen();
         } else if (!buttonsFTW.equals(buttonsNow)) {
             System.out.println("you haven't woneth yet");

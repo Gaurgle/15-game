@@ -4,31 +4,41 @@ import java.io.InputStream;
 
 public class Audio implements LineListener {
 
-    private Clip themeSong;
+    private Clip clip;
 
-    public Audio() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("audio/Game15_1.0.wav");
+    public Audio(String fileName) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("audio/" +fileName);
         if (inputStream == null) {
-            throw new UnsupportedAudioFileException("Audiofile not found.");
+            throw new UnsupportedAudioFileException("Audiofile " + fileName +" not found.");
         }
 
         try (AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(inputStream)) {
             AudioFormat audioFormat = audioInputStream.getFormat();
             DataLine.Info info = new DataLine.Info(Clip.class, audioFormat);
-            themeSong = (Clip) AudioSystem.getLine(info);
-            themeSong.addLineListener(this);
-            themeSong.open(audioInputStream);
+            clip = (Clip) AudioSystem.getLine(info);
+            clip.addLineListener(this);
+            clip.open(audioInputStream);
 
         }
+    }
 
-        themeSong.start();
+    public void play(){
+        if (clip != null) {
+            clip.setFramePosition(0);
+            clip.start();
+        }
+    }
 
+    public void stop(){
+        if (clip != null && clip.isRunning()) {
+            clip.stop();
+        }
     }
 
     @Override
-    public void update(LineEvent event) {
+    public void update(LineEvent event){
         if (event.getType() == LineEvent.Type.STOP) {
-            themeSong.stop();
+            clip.stop();
         }
     }
 }
