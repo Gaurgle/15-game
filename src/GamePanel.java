@@ -22,10 +22,10 @@ public class GamePanel extends JPanel implements ActionListener {
 
     public GamePanel() {
         try {
-            audioThemeSong = new Audio("Game15_1.0.wav");
-            audioMoveSucc = new Audio("move_succ.wav");
-            audioMoveFail = new Audio("move_fail.wav");
-            audioCleared = new Audio("audio_cleared.wav");
+            audioThemeSong = new Audio("Game15_1.0.wav", true);
+            audioMoveSucc = new Audio("move_succ.wav", false);
+            audioMoveFail = new Audio("move_fail.wav",false);
+            audioCleared = new Audio("audio_cleared.wav",false);
 
             audioThemeSong.play();
         } catch (Exception e) {
