@@ -10,27 +10,12 @@ import java.util.List;
 
 public class GamePanel extends JPanel implements ActionListener {
 
-    private Audio audioThemeSong;
-    private Audio audioMoveSucc;
-    private Audio audioMoveFail;
-    private Audio audioCleared;
-
-    private boolean musicPlaying = true;
+    private final AudioManager am = new AudioManager();
     private List<JButton> buttons = new ArrayList<>();
     private int indexOfEmptyButton;
     private boolean hasWon;
 
     public GamePanel() {
-        try {
-            audioThemeSong = new Audio("Game15_1.0.wav", true);
-            audioMoveSucc = new Audio("move_succ.wav", false);
-            audioMoveFail = new Audio("move_fail.wav",false);
-            audioCleared = new Audio("audio_cleared.wav",false);
-
-            audioThemeSong.play();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
         HelperUtil.setFacit();
         setLayout(new GridLayout(4, 4, 2, 2));
@@ -78,7 +63,7 @@ public class GamePanel extends JPanel implements ActionListener {
     public void newGame() {
         createButtonLayout(false);
         updateButtons(0, true);
-        audioThemeSong.play();
+        am.playThemeSong();
     }
 
     public void devMode() {
@@ -86,8 +71,8 @@ public class GamePanel extends JPanel implements ActionListener {
         updateButtons(0,true);
     }
 
-    public void toggleMusic() {
-        audioThemeSong.mute();
+    public void toggleThemeSong() {
+        am.toggleThemeMute();
     }
 
     public void setWinScreen() {
@@ -159,9 +144,9 @@ public class GamePanel extends JPanel implements ActionListener {
         if (buttonsAreSwappable(indexOfClickedButton)) {
             //Byt plats på den tomma knappen och den tryckta knappen
             updateButtons(indexOfClickedButton, false);
-            audioMoveSucc.play();
+            am.playAudioMoveSucc();
         } else {
-            audioMoveFail.play();
+            am.playAudioMoveFail();
         }
         //Är vi i mål?
         List<String> buttonsNow = getButtonsOrder();
@@ -169,8 +154,8 @@ public class GamePanel extends JPanel implements ActionListener {
 
         if (buttonsNow.equals(buttonsFTW)) {
             System.out.println("you won");
-            audioThemeSong.stop();
-            audioCleared.play();
+            am.stopThemeSong();
+            am.playAudioCleared();
 
             setWinScreen();
         } else if (!buttonsFTW.equals(buttonsNow)) {
