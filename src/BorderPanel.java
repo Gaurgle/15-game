@@ -29,7 +29,7 @@ public class BorderPanel extends JPanel implements ActionListener {
         } else if (e.getSource() == optionsPanel.getSetGameOneFromWin()) {
             gamePanel.devMode();
         } else if (e.getSource() == optionsPanel.getMusicOnOff()) {
-            gamePanel.toggleMusic();
+            gamePanel.toggleThemeSong();
         }
     }
 }

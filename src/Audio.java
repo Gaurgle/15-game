@@ -59,7 +59,11 @@ public class Audio implements LineListener {
     public void mute() {
         if (isMuted) {
             clip.setFramePosition(songPosition); // Sets song position
-            clip.start();
+            if (loopAudio) {
+                clip.loop(Clip.LOOP_CONTINUOUSLY);
+            } else {
+                clip.start();
+            }
         } else {
             songPosition = clip.getFramePosition(); // Gets and updates song position
             clip.stop();
