@@ -43,8 +43,6 @@ public class OptionsPanel extends JPanel {
     public JButton getSetGameOneFromWin() {
         return setGameOneFromWin;
     }
-    public JButton getMusicOnOff() {
-        return musicOnOff;
-        // music on ooff
+    public JButton getMusicOnOff() { return musicOnOff;
     }
 }

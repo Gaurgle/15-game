@@ -1,7 +1,5 @@
 import javax.sound.sampled.*;
-import java.io.IOException;
 import java.io.InputStream;
-import java.util.Timer;
 
 public class Audio implements LineListener {
 
