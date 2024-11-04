@@ -42,7 +42,6 @@ public class Audio implements LineListener {
             clip.setFramePosition(0); // Plays sounds from beginning (frame 0)
             if (loopAudio) {
                 clip.loop(Clip.LOOP_CONTINUOUSLY);
-            } else {
                 clip.start();
             }
         }
