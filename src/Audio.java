@@ -43,6 +43,8 @@ public class Audio implements LineListener {
             if (loopAudio) {
                 clip.loop(Clip.LOOP_CONTINUOUSLY);
                 clip.start();
+            } else {
+                clip.start();
             }
         }
     }
@@ -58,11 +60,10 @@ public class Audio implements LineListener {
             clip.setFramePosition(songPosition); // Sets song position
             if (loopAudio) {
                 clip.loop(Clip.LOOP_CONTINUOUSLY);
-            } else {
-                clip.start();
             }
+            clip.start();
         } else {
-            songPosition = clip.getFramePosition(); // Gets and updates song position
+            songPosition = clip.getFramePosition();
             clip.stop();
         }
         isMuted = !isMuted;
